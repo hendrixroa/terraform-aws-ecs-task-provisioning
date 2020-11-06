@@ -1,5 +1,5 @@
-// Codedeploy trigger
-module "lambda_codedeploy_trigger" {
+// ECS Task provisioning
+module "lambda_ecs_task_provisioning" {
   source               = "hendrixroa/lambda/aws"
   enabled              = 1
   code_location        = "./src/"
