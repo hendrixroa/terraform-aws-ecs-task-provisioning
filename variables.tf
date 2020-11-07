@@ -29,3 +29,7 @@ variable "ecs_clusters_arn" {
 }
 
 variable "elasticsearch_arn" {}
+
+variable "enabled" {
+  default = 1
+}

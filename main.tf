@@ -1,7 +1,7 @@
 // Codedeploy trigger
 module "lambda_codedeploy_trigger" {
   source               = "hendrixroa/lambda/aws"
-  enabled              = 1
+  enabled              = var.enabled
   code_location        = "./src/"
   filename             = "ecsTaskProvisioning.zip"
   lambda_iam_role      = aws_iam_role.lambda_elastic_queries_role.arn
