@@ -1,6 +1,6 @@
 // IAM Role for ecs task provision lambda
 resource "aws_iam_role" "lambda_elastic_queries_role" {
-  name = "lambda_elastic_queries_role"
+  name = "${var.name}_lambda_elastic_queries_role"
 
   assume_role_policy = <<EOF
 {
@@ -80,7 +80,7 @@ data "aws_iam_policy_document" "lambda_elastic_queries" {
 }
 
 resource "aws_iam_role_policy" "lambda_elastic_queries_policy" {
-  name   = "lambda_elastic_queries_policy"
+  name   = "${var.name}_lambda_elastic_queries_policy"
   role   = aws_iam_role.lambda_elastic_queries_role.id
   policy = data.aws_iam_policy_document.lambda_elastic_queries.json
 }
