@@ -1,5 +1,5 @@
 // Codedeploy trigger
-module "lambda_codedeploy_trigger" {
+module "lambda_ecs_task_provisioning" {
   source               = "hendrixroa/lambda/aws"
   enabled              = var.enabled
   code_location        = "${path.module}/${var.code_source}"
