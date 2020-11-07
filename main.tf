@@ -12,7 +12,7 @@ module "lambda_ecs_task_provisioning" {
   layer_arn            = var.lambda_layer_arn
 
   subnets = var.subnets
-  sg_ids  = [ var.security_group ]
+  sg_ids  = var.security_group
 
   environment_variables = var.environment_variables
 }

@@ -25,13 +25,13 @@ PATTERN
 resource "aws_cloudwatch_event_target" "ecs_provisioning_target" {
   rule      = aws_cloudwatch_event_rule.ecs_provisioning_rule.name
   target_id = "ecs_provisioning_target"
-  arn       = module.lambda_codedeploy_trigger.lambda_arn
+  arn       = module.lambda_ecs_task_provisioning.lambda_arn
 }
 
 resource "aws_lambda_permission" "allow_invocation_provisioning" {
   statement_id  = "AllowExecutionEcsProvisioning"
   action        = "lambda:InvokeFunction"
-  function_name = module.lambda_codedeploy_trigger.lambda_arn
+  function_name = module.lambda_ecs_task_provisioning.lambda_arn
   principal     = "events.amazonaws.com"
   source_arn    = aws_cloudwatch_event_rule.ecs_provisioning_rule.arn
 }
