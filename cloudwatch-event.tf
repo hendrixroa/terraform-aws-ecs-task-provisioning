@@ -3,23 +3,7 @@ resource "aws_cloudwatch_event_rule" "ecs_provisioning_rule" {
   name        = "ecs_provisioning_rule"
   description = "Event rule to capture ecs provisioning for alerting stuff"
 
-  event_pattern = <<PATTERN
-{
-  "source": [
-    "aws.ecs"
-  ],
-  "detail-type": [
-    "ECS Task State Change"
-  ],
-  "detail": {
-    "clusterArn": ${[var.ecs_clusters_arn]},
-    "lastStatus": [
-      "PROVISIONING"
-    ]
-  }
-}
-PATTERN
-
+  event_pattern = var.event_pattern
 }
 
 resource "aws_cloudwatch_event_target" "ecs_provisioning_target" {

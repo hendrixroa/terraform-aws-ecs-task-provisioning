@@ -24,9 +24,7 @@ variable "runtime" {
   default = "nodejs10.x"
 }
 
-variable "ecs_clusters_arn" {
-  default = []
-}
+variable "event_pattern" {}
 
 variable "elasticsearch_arn" {}
 
