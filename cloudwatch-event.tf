@@ -12,7 +12,7 @@ resource "aws_cloudwatch_event_rule" "ecs_provisioning_rule" {
     "ECS Task State Change"
   ],
   "detail": {
-    "clusterArn": ${var.ecs_clusters_arn},
+    "clusterArn": ${[var.ecs_clusters_arn]},
     "lastStatus": [
       "PROVISIONING"
     ]
