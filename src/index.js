@@ -165,7 +165,7 @@ exports.handler = async (input, context) => {
                                     'filter' : [
                                         {
                                             'term' : {
-                                                'log' : {
+                                                'level' : {
                                                     'value' : 50,
                                                     'boost' : 1.0
                                                 }
@@ -217,7 +217,7 @@ exports.handler = async (input, context) => {
       "id": "{{_id}}",
       "nameService": "${nameTask}",
       "stage": "${account}",
-      "log": "{{_source.log}}",
+      "message": "{{_source.msg}}",
       "kibanaUrl": "https://${es_endpoint}/_plugin/kibana/app/kibana#/discover?_g=(refreshInterval:(pause:!t,value:0),time:(from:now-7d,mode:quick,to:now))&_a=(columns:!(_source),filters:!(('$state':(store:appState),meta:(alias:!n,disabled:!f,index:'${idIndexPattern}',key:'@id',negate:!f,params:(query:'{{_id}}',type:phrase),type:phrase,value:'{{_id}}'),query:(match:('@id':(query:'{{_id}}',type:phrase))))),index:'${idIndexPattern}',interval:auto,query:(language:lucene,query:''),sort:!('@timestamp',desc))"
     }
     SM_CUSTOM_DELIMITER
