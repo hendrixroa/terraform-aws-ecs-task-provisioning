@@ -21,7 +21,7 @@ variable "security_group" {
 variable "environment_variables" {}
 
 variable "runtime" {
-  default = "nodejs10.x"
+  default = "nodejs14.x"
 }
 
 variable "event_pattern" {}
